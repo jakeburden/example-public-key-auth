@@ -1,0 +1,57 @@
+{
+  "name": "example-public-key-auth",
+  "version": "1.0.0",
+  "description": "user auth through public key cryptography",
+  "main": "index.js",
+  "browser": {
+    "level": "level-browserify",
+    "sodium": "sodium-browserify/browser"
+  },
+  "browserify": {
+    "transform": [
+      "hyperxify", [
+        "babelify", {
+          "presets": [
+            "es2015"
+          ]
+        }
+      ]
+    ]
+  },
+  "scripts": {
+    "watch": "watchify browser/index.js -o browser/dist/app.bundle.js -dv",
+    "start": "node index.js",
+    "dev": "npm run watch & npm start",
+    "build": "NODE_ENV=production browserify browser/index.js | uglifyjs -cm > browser/dist/app.bundle.js",
+    "prod": "npm run build & npm start"
+  },
+  "author": "Jacob Burden",
+  "license": "MIT",
+  "dependencies": {
+    "body": "^5.1.0",
+    "buffer": "^4.4.0",
+    "bytewise": "^1.1.0",
+    "catch-links": "^2.0.0",
+    "hyperstream": "^1.2.2",
+    "hyperx": "^1.2.0",
+    "level": "^1.4.0",
+    "level-browserify": "^1.1.0",
+    "main-loop": "^3.2.0",
+    "oppressor": "0.0.1",
+    "patterns": "^1.0.2",
+    "pwd": "0.0.4",
+    "sodium": "^1.0.22",
+    "sodium-browserify": "^1.0.3",
+    "virtual-dom": "^2.1.1",
+    "virtual-dom-stream": "^1.0.1",
+    "webworkify": "^1.1.0"
+  },
+  "devDependencies": {
+    "babel-preset-es2015": "^6.3.13",
+    "babelify": "^7.2.0",
+    "browserify": "^13.0.0",
+    "hyperxify": "^1.1.0",
+    "uglify-js": "^2.6.1",
+    "watchify": "^3.7.0"
+  }
+}
